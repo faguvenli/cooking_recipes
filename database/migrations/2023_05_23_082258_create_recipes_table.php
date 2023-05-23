@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('slug');
             $table->text('summary')->nullable();
             $table->text('description');
+            $table->text('ingredients')->nullable();
+            $table->string('servings')->nullable();
+            $table->string('prep_time')->nullable();
+            $table->string('cook_time')->nullable();
             $table->boolean('is_active')->default(true);
             $table->unsignedBigInteger('sort')->nullable();
             $table->unsignedBigInteger('hit_count')->default(0);
