@@ -4,11 +4,14 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\RecipeResource\Pages;
 use App\Filament\Resources\RecipeResource\RelationManagers;
+use App\Models\Category;
+use App\Models\Game;
 use App\Models\Recipe;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -53,6 +56,16 @@ class RecipeResource extends Resource
                         ->maxSize(1024)
                         ->preserveFilenames()
                         ->imagePreviewHeight(150),
+
+                    Select::make('category_id')
+                        ->required()
+                        ->label('Kategori')
+                        ->searchable()
+                        ->relationship('category', 'title')
+                        ->options(Category::query()->where('is_active', true)
+                            ->orderBy('title')
+                            ->pluck('title', 'id')
+                            ->toArray()),
 
                     \Camya\Filament\Forms\Components\TitleWithSlugInput::make(
                         fieldTitle: 'title', // The name of the field in your model that stores the title.

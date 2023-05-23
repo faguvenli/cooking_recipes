@@ -16,6 +16,7 @@ class Recipe extends Model implements  HasMedia
     protected $fillable = [
         'title',
         'slug',
+        'category_id',
         'servings',
         'prep_time',
         'cook_time',
@@ -34,5 +35,9 @@ class Recipe extends Model implements  HasMedia
             ->fit(Manipulations::FIT_CROP, 150, 150)
             ->quality(80)
             ->nonQueued();
+    }
+
+    public function category() {
+        return $this->belongsTo(Category::class);
     }
 }
