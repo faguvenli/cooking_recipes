@@ -1,0 +1,168 @@
+header {
+
+    &:before {
+        content: "";
+        position:absolute;
+        height: 70px;
+        width: 100%;
+        background-color: rgba(215, 0, 0, 0.3);
+        border-bottom: 1px solid white;
+        transition:.5s;
+        @media(max-width:991px) {
+            //height: 82px;
+            display:none;
+        }
+    }
+    background: linear-gradient(180deg, #830000, #ff3f3f);
+    a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.05em;
+        &:hover {
+            color: white;
+        }
+    }
+    .top-menu {
+        padding-top:70px;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        color: #FFFFFF;
+        width: 100%;
+        transition:.5s;
+        @media(max-width:991px) {
+            padding-top:0;
+            justify-content: flex-start;
+        }
+    }
+
+    .links {
+        flex:1;
+        ul {
+            list-style: none;
+            margin:0;
+            padding:0;
+            display: flex;
+            justify-content: space-between;
+            li {
+                margin-right: 10px;
+                &:last-child {
+                    margin-right:0;
+                }
+                &.active {
+                    position:relative;
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        height: 5px;
+                        width: 110%;
+                        background: white;
+                        bottom: -35px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+        }
+    }
+    .logo {
+        text-align:center;
+        max-width: 100%;
+        position: relative;
+        z-index:2;
+        margin: 0 80px 5px;
+        @media(max-width:991px) {
+            margin: 10px 0;
+            img {
+                width: 80%;
+            }
+        }
+        &:after {
+            content:"";
+            position:absolute;
+            left:-40px;
+            top:-75px;
+            height: 220px;
+            width:230px;
+            background-image: url(/images/pages/logo_base.png);
+            background-repeat: no-repeat;
+            background-position: 8px 0;
+            z-index: -1;
+            @media(max-width:991px) {
+                display: none;
+            }
+        }
+    }
+
+    $btnWidth: 30px;
+    $btnHeight: 30px;
+    $barWidth: 70%;
+    $barHeight: 2px;
+    $barSpacing: 6px;
+    $barRadius: 4px;
+
+    .hamburger_btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: $btnWidth;
+        height: $btnHeight;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        span,
+        span::before,
+        span::after {
+            display: block;
+            width: $barWidth;
+            height: $barHeight;
+            background-color: #fff;
+            border-radius: $barRadius;
+        }
+        span {
+            position: relative;
+            transition: all 0 .3;
+            &::before,
+            &::after {
+                position: absolute;
+                left: 0;
+                width: 100%;
+                content: '';
+            }
+            &::before {
+                top: ($barHeight + $barSpacing);
+                transition:
+                    top .3s .3s cubic-bezier(.23, 1, .32, 1),
+                    transform .3s cubic-bezier(.23, 1, .32, 1);
+            }
+            &::after {
+                bottom: ($barHeight + $barSpacing);
+                transition:
+                    bottom .3s .3s cubic-bezier(.23, 1, .32, 1),
+                    transform .3s cubic-bezier(.23, 1, .32, 1);
+            }
+        }
+        &.is-open {
+            span {
+                background: rgba(255, 255, 255, 0);
+                &::before {
+                    top: 0;
+                    transition:
+                        top .3s cubic-bezier(.23, 1, .32, 1),
+                        transform .3s .3s cubic-bezier(.23, 1, .32, 1);
+                    transform: rotate(-45deg);
+                }
+                &::after {
+                    bottom: 0;
+                    transition:
+                        bottom .3s cubic-bezier(.23, 1, .32, 1),
+                        transform .3s .3s cubic-bezier(.23, 1, .32, 1);
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+}

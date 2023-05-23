@@ -1,0 +1,128 @@
+.overlay {
+    background-color: rgba(0,0,0,.4);
+    bottom: 0;
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+.menu_open {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    background: none;
+    border: none;
+    color: #333;
+    margin-top: 37px;
+    font-size: 13px;
+    font-weight: 600;
+    padding-right: 0 !important;
+    z-index: 10;
+    text-decoration: none !important;
+
+    span {
+        position: relative;
+
+        &:before {
+            content: "\f0c9";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: -25px;
+            top: -3px;
+            font-size: 19px;
+        }
+    }
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+.slide-menu {
+    width: 280px;
+    background: linear-gradient(180deg, #11051d, #170c2b);
+
+    .language {
+        a {
+            display: inline-block;
+            width: 30%;
+        }
+    }
+
+    .search_box_holder {
+        input {
+            height: 35px;
+            border-radius: 5px;
+            border: none;
+            padding: 15px;
+        }
+    }
+
+    .search-btn {
+        &:before {
+            content:none !important;
+        }
+    }
+
+}
+
+.slide-menu,
+.slide-menu a {
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.slide-menu a {
+    padding: 0.9rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+.slide-menu a.static-page-links {
+    padding: 0.9rem 0;
+    border:none;
+}
+
+
+.slide-menu {
+    .controls {
+        display: flex;
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        flex: 1 0 auto;
+        font-size: 90%;
+        color: #fff;
+        background: linear-gradient(180deg, #11051d, #170c2b);
+        text-transform: uppercase;
+
+        &:first-of-type {
+            text-align: left;
+        }
+
+        &:first-of-type:before {
+            content: "⮜";
+            margin-right: 0.5rem;
+        }
+
+        &:last-of-type {
+            text-align: right;
+        }
+
+        &:last-of-type:before {
+            content: "✕";
+            margin-right: 0.5rem;
+        }
+    }
+
+    .slide-menu__backlink {
+        text-transform: uppercase;
+    }
+}

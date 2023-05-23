@@ -1,0 +1,33 @@
+footer {
+    margin-top:100px;
+    background-color: rgba(215, 0, 0, 0.32);
+    padding: 50px 0 0;
+    .title {
+        position:relative;
+        display:inline-block;
+        &:after {
+            content: "";
+            position:absolute;
+            width: 50px;
+            left:0;
+            bottom: -10px;
+            height: 2px;
+            background-color: rgb(215, 0, 0);
+        }
+    }
+    .social-media {
+        i {
+            color: #777777;
+        }
+    }
+    .links {
+        a {
+            text-decoration: none;
+        }
+        font-weight: 400;
+        font-size: .875em;
+        small {
+            color: #777777;
+        }
+    }
+}

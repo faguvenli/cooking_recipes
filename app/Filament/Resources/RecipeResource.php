@@ -80,7 +80,7 @@ class RecipeResource extends Resource
 
                     RichEditor::make('description')
                         ->label('Açıklama')
-                    ->required(),
+                        ->required(),
                 ]),
             ]);
     }
@@ -93,7 +93,7 @@ class RecipeResource extends Resource
                 SpatieMediaLibraryImageColumn::make('cover_image')
                     ->collection('recipe_covers')
                     ->conversion('preview')
-                ->label('Kapak Görseli'),
+                    ->label('Kapak Görseli'),
                 Tables\Columns\TextColumn::make('title')
                     ->words(10)
                     ->searchable()

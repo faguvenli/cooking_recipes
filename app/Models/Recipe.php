@@ -16,6 +16,10 @@ class Recipe extends Model implements  HasMedia
     protected $fillable = [
         'title',
         'slug',
+        'servings',
+        'prep_time',
+        'cook_time',
+        'ingredients',
         'summary',
         'description',
         'is_active',
