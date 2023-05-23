@@ -62,11 +62,25 @@ class RecipeResource extends Resource
                         slugLabel: 'Link',
                     ),
 
+                    TextInput::make('servings')
+                        ->label('Kaç Kişilik'),
+
+                    TextInput::make('prep_time')
+                        ->label('Hazırlanma Süresi'),
+
+                    TextInput::make('cook_time')
+                        ->label('Pişirme Süresi'),
+
+
+                    RichEditor::make('ingredients')
+                        ->label('Malzemeler'),
+
                     RichEditor::make('summary')
                         ->label('Özet'),
 
                     RichEditor::make('description')
-                        ->label('Açıklama'),
+                        ->label('Açıklama')
+                    ->required(),
                 ]),
             ]);
     }
